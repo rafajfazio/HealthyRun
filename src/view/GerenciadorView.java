@@ -1,8 +1,11 @@
 package view;
 
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.scene.control.Button;
 
 public class GerenciadorView {
     
@@ -18,10 +21,25 @@ public class GerenciadorView {
         mainScene = new Scene(mainPane,ALTURA,LARGURA);
         mainStage = new Stage();
         mainStage.setScene(mainScene);
+        criarBotoes();
     }
     
     public Stage getMainStage(){
         return mainStage;
+    }
+    
+    private void criarBotoes(){
+        
+        Button botao = new Button();
+        mainPane.getChildren().add(botao);
+        
+        botao.setOnMouseEntered(new EventHandler<Event>() {
+            @Override
+            public void handle(Event event){
+                System.out.println("MOUSE ENTERED");
+            }
+        });
+        
     }
     
 }
